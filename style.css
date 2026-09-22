@@ -389,139 +389,493 @@ a {
         font-size: 36px;
     }
 }
-
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
 
 @media (max-width: 850px) {
 
+    /* HEADER */
+
     .header {
-        height: 70px;
-    }
-
-    .navbar {
-        width: calc(100% - 28px);
-    }
-
-    .menu {
-        position: absolute;
-
-        top: 70px;
-        left: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
 
         width: 100%;
+        height: auto;
 
-        display: none;
-
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.98);
 
         border-bottom: 1px solid var(--border);
 
-        box-shadow: var(--shadow);
+        box-shadow:
+            0 2px 12px rgba(15, 23, 42, 0.06);
+
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
     }
 
-    .menu.active {
-        display: block;
-    }
 
-    .menu ul {
+    /* NAVBAR */
+
+    .navbar {
+        width: calc(100% - 28px);
+
+        min-height: 70px;
         height: auto;
 
-        padding: 10px;
+        margin: 0 auto;
 
-        flex-direction: column;
-        align-items: stretch;
+        display: flex;
 
-        gap: 2px;
+        align-items: center;
+
+        justify-content: space-between;
+
+        flex-wrap: wrap;
     }
 
-    .menu li {
-        height: auto;
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
+    .logo {
+        min-width: 0;
+
+        flex: 1;
+
+        display: flex;
+
+        align-items: center;
+
+        text-decoration: none;
     }
 
-    .menu a {
-        height: 48px;
 
-        padding: 0 18px;
+    .logo-pin {
+        font-size: 34px;
 
-        border-radius: 10px;
+        margin-right: 8px;
+
+        flex-shrink: 0;
     }
 
-    .menu a:hover {
-        background: #fff1f1;
+
+    .logo-text {
+        min-width: 0;
     }
 
-    .menu li:first-child a::after {
-        display: none;
+
+    .logo-text h2 {
+        margin: 0;
+
+        font-size: 22px;
+
+        line-height: 1;
+
+        white-space: nowrap;
     }
+
+
+    .logo-text span {
+        margin-top: 4px;
+
+        font-size: 10px;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       RIGHT SIDE
+       ===================================================== */
 
     .nav-right {
+        min-width: auto;
+
         margin-left: auto;
-        margin-right: 10px;
+        margin-right: 8px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-end;
+
+        gap: 8px;
     }
+
+
+    /* =====================================================
+       GITHUB BUTTON
+       ===================================================== */
 
     .github-btn {
-        min-width: 44px;
         width: 44px;
+        min-width: 44px;
+
+        height: 44px;
 
         padding: 0;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 10px;
+
+        background: #000000;
+
+        color: #ffffff;
     }
+
 
     .github-btn span {
         display: none;
     }
 
-    .theme-toggle {
-        width: 60px;
-        height: 34px;
+
+    .github-btn i {
+        font-size: 18px;
     }
 
-    .mobile-menu-btn {
-        display: flex;
 
-        align-items: center;
-        justify-content: center;
-    }
-
-    .logo-text h2 {
-        font-size: 22px;
-    }
-
-    .logo-text span {
-        font-size: 11px;
-    }
-
-    .logo-pin {
-        font-size: 34px;
-    }
-}
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 520px) {
-
-    .logo-pin {
-        font-size: 30px;
-        margin-right: 7px;
-    }
-
-    .logo-text h2 {
-        font-size: 20px;
-    }
-
-    .logo-text span {
-        font-size: 10px;
-    }
+    /* =====================================================
+       THEME BUTTON
+       ===================================================== */
 
     .theme-toggle {
         display: none;
     }
 
+
+    /* =====================================================
+       HAMBURGER / CLOSE BUTTON
+       ===================================================== */
+
+    .mobile-menu-btn {
+        display: flex;
+
+        width: 44px;
+        height: 44px;
+
+        flex: 0 0 44px;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid #dbe3ee;
+
+        border-radius: 10px;
+
+        background: #ffffff;
+
+        color: #0f172a;
+
+        font-size: 20px;
+
+        cursor: pointer;
+
+        transition:
+            background .2s ease,
+            color .2s ease,
+            border-color .2s ease,
+            transform .2s ease;
+    }
+
+
+    .mobile-menu-btn:hover {
+        background: #f8fafc;
+
+        border-color: #cbd5e1;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+       
+       IMPORTANT:
+       Do NOT use position:absolute here.
+       The menu will push the hero downward.
+       ===================================================== */
+
+    .menu {
+
+        position: static;
+
+        width: 100%;
+
+        height: auto;
+
+        flex: 0 0 100%;
+
+        display: none;
+
+        order: 10;
+
+        background: #ffffff;
+
+        border-top: 1px solid #eef2f7;
+
+        box-shadow: none;
+    }
+
+
+    /* OPEN MENU */
+
+    .menu.active {
+        display: block;
+    }
+
+
+    /* =====================================================
+       MENU LIST
+       ===================================================== */
+
+    .menu ul {
+
+        width: 100%;
+
+        height: auto;
+
+        margin: 0;
+
+        padding: 10px 0 12px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 4px;
+
+        list-style: none;
+    }
+
+
+    /* =====================================================
+       MENU ITEM
+       ===================================================== */
+
+    .menu li {
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+    }
+
+
+    /* =====================================================
+       MENU LINK
+       ===================================================== */
+
+    .menu a {
+
+        width: 100%;
+
+        height: 48px;
+
+        padding: 0 16px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 13px;
+
+        border-radius: 10px;
+
+        color: #0f172a;
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        text-decoration: none;
+
+        transition:
+            background .2s ease,
+            color .2s ease;
+    }
+
+
+    /* MENU ICON */
+
+    .menu a i {
+
+        width: 22px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        color: #334155;
+
+        font-size: 16px;
+
+        transform: none;
+    }
+
+
+    /* HOVER */
+
+    .menu a:hover {
+
+        background: #fff1f2;
+
+        color: #e50909;
+    }
+
+
+    .menu a:hover i {
+
+        color: #e50909;
+
+        transform: none;
+    }
+
+
+    /* =====================================================
+       ACTIVE HOME
+       ===================================================== */
+
+    .menu li:first-child a {
+
+        color: var(--primary);
+
+        font-weight: 700;
+
+        background: #fff5f5;
+    }
+
+
+    .menu li:first-child a i {
+
+        color: var(--primary);
+    }
+
+
+    .menu li:first-child a::after {
+
+        display: none;
+    }
+
+
+    /* =====================================================
+       REMOVE DESKTOP NAV SPACING
+       ===================================================== */
+
+    .menu li a::after {
+
+        display: none !important;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    .header {
+        height: auto;
+    }
+
+
+    .navbar {
+        width: calc(100% - 20px);
+
+        min-height: 70px;
+    }
+
+
+    /* LOGO */
+
+    .logo-pin {
+        font-size: 30px;
+
+        margin-right: 7px;
+    }
+
+
+    .logo-text h2 {
+        font-size: 20px;
+
+        letter-spacing: -0.7px;
+    }
+
+
+    .logo-text span {
+        font-size: 9px;
+
+        margin-top: 4px;
+    }
+
+
+    /* RIGHT SIDE */
+
     .nav-right {
         margin-right: 6px;
+
+        gap: 6px;
+    }
+
+
+    /* GITHUB */
+
+    .github-btn {
+        width: 44px;
+        min-width: 44px;
+
+        height: 44px;
+
+        border-radius: 10px;
+    }
+
+
+    /* MOBILE BUTTON */
+
+    .mobile-menu-btn {
+        width: 44px;
+        height: 44px;
+
+        flex-basis: 44px;
+
+        border-radius: 10px;
+
+        font-size: 19px;
+    }
+
+
+    /* MENU */
+
+    .menu ul {
+        padding: 8px 0 10px;
+    }
+
+
+    .menu a {
+        height: 46px;
+
+        padding: 0 14px;
+
+        font-size: 14px;
+
+        gap: 12px;
+    }
+
+
+    .menu a i {
+        width: 21px;
+
+        font-size: 15px;
     }
 }
 
@@ -581,7 +935,7 @@ a {
     width: 100%;
     max-width: 1200px;
 
-    margin: 20px;
+    margin: 0;
     padding: 0 0 60px 5%;
 
     min-height: calc(100vh - 76px);
@@ -802,6 +1156,7 @@ a {
 
     .hero-content {
         width: min(100% - 32px, 700px);
+         margin: 0 auto;
 
         padding: 55px 0;
     }
@@ -816,6 +1171,8 @@ a {
 
     .hero {
         min-height: calc(100vh - 70px);
+         margin: 0;
+
 
         align-items: flex-start;
 
@@ -824,6 +1181,7 @@ a {
 
     .hero-content {
         width: calc(100% - 28px);
+         margin: 0 auto;
 
         padding: 45px 0 35px;
     }
