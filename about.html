@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | PIN Code API</title>
+  <meta
+    name="description"
+    content="Learn more about the PIN Code API, its purpose, and how it helps find branch office information by pincode."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="header">
+        <nav class="navbar">
+
+            <a href="#" class="logo">
+                <i class="fa-solid fa-location-pin logo-pin"></i>
+
+                <div class="logo-text">
+                    <h2>PinLocate</h2>
+                    <span>Find Nearer. Go Faster.</span>
+                </div>
+            </a>
+
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>Search Pincode</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#find-bo">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Find BO</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#about">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="docs.html">
+                            <i class="fa-solid fa-code"></i>
+                            <span>API</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-sun"></i>
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <a href="#github" class="github-btn">
+                    <i class="fa-brands fa-github"></i>
+                    <span>Github</span>
+                </a>
+
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </nav>
+    </header>
+
+  <main class="page-main">
+    <section class="hero-section hero-compact">
+      <div class="container">
+        <div class="hero-copy">
+          <span class="section-tag">About the project</span>
+          <h1>Fast, lightweight branch office lookup by pincode.</h1>
+          <p>
+            The PIN Code API makes it easy to find branch office details for a 6-digit
+            pincode without loading large datasets into the browser. It fetches a small
+            index first and only downloads the matching shard file when needed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <div class="feature-grid">
+          <article class="info-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3>Lightweight by design</h3>
+            <p>
+              Instead of loading all postal records at startup, the app loads a compact
+              index file and retrieves only the location shard required for the selected
+              pincode.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3>Accurate search</h3>
+            <p>
+              Validated 6-digit pincode lookup checks the index, fetches the relevant
+              records, and filters only branch offices with officetype equal to BO.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3>Location details</h3>
+            <p>
+              Matching branch offices display district, state, circle, region, division,
+              delivery status, and map coordinates when available.
+            </p>
+          </article>
+        </div>
+
+        <div class="text-panel">
+          <h2>How it works</h2>
+          <ol class="steps">
+            <li>Enter a valid 6-digit pincode in the search form.</li>
+            <li>The app checks the local <strong>index.json</strong> file.</li>
+            <li>It fetches the mapped shard file for that pincode.</li>
+            <li>Branch office records are filtered and displayed in cards.</li>
+            <li>The first result is opened with location details and map view.</li>
+          </ol>
+        </div>
+
+        <div class="text-panel">
+          <h2>Why this API is useful</h2>
+          <p>
+            This API is ideal for websites, dashboards, and tools that need quick branch
+            office lookups without the overhead of a full postal database. It keeps
+            requests efficient, reduces initial page load time, and maintains a clean
+            client-side search workflow.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Need branch-office data for a project?</h2>
+          <p>
+            Use the API for pincode-based branch discovery, office details, and map
+            integration in a lightweight frontend setup.
+          </p>
+          <a href="docs.html" class="btn btn-primary">Read the documentation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer" id="contact">
+
+    <div class="footer-main">
+
+        <!-- Brand -->
+
+        <div class="footer-brand">
+
+            <a href="#" class="footer-logo">
+
+                <i class="fa-solid fa-location-pin"></i>
+
+                <div>
+                    <strong>PinLocate</strong>
+                    <span>Find Nearer. Go Faster.</span>
+                </div>
+
+            </a>
+
+
+            <p>
+                A simple tool to locate all Branch Offices (BO)
+                for any pincode across India.
+            </p>
+
+            <em>
+                “Information creates better opportunities.”
+            </em>
+
+        </div>
+
+
+        <!-- Quick Links -->
+
+        <div class="footer-column">
+
+            <h3>Quick Links</h3>
+
+            <span class="footer-line"></span>
+
+            <a href="#">Home</a>
+            <a href="#search">Search Pincode</a>
+            <a href="#find-bo">Find BO</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <!-- Useful Links -->
+
+        <div class="footer-column">
+
+            <h3>Useful Links</h3>
+
+            <span class="footer-line"></span>
+
+            <a
+                href="https://www.openstreetmap.org/"
+                target="_blank"
+                rel="noopener noreferrer">
+                OpenStreetMap
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a
+                href="https://maps.google.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Google Maps
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a href="#">
+                India Pincode Info
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a href="#">
+                Developer Portfolio
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a href="#">
+                Report an Issue
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+
+        <!-- Social -->
+
+        <div class="footer-column footer-social">
+
+            <h3>Connect With Me</h3>
+
+            <span class="footer-line"></span>
+
+            <div class="social-icons">
+
+                <a href="#" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+            </div>
+
+            <p class="social-text">
+                Let's build, learn and grow together.
+            </p>
+
+            <a
+                href="mailto:sarbeswarpanda143@gmail.com"
+                class="email-link">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                sarbeswarpanda143@gmail.com
+
+            </a>
+
+        </div>
+
+
+        <!-- Footer Quote -->
+
+        <div class="footer-quote">
+
+            <span></span>
+
+            <p>
+                Keep<br>
+                Exploring<br>
+                Keep Building
+                <b>♥</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <div>
+            © 2026 PinLocate. All rights reserved.
+        </div>
+
+        <div>
+            Developed by
+            <strong>Sarbeswar Panda</strong>
+
+            <span class="separator">|</span>
+
+            Made with
+            <b>♥</b>
+            in India
+        </div>
+
+        <div>
+
+            <a href="#">Privacy Policy</a>
+
+            <span>|</span>
+
+            <a href="#">Terms of Use</a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
