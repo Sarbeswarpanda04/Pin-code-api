@@ -757,9 +757,7 @@ function showOffice(office) {
     selectedSubtitle.textContent =
         `${office.district || ""}, ${office.statename || ""}`;
 
-
     selectedInfo.innerHTML = `
-
         <div class="detail-item">
             <span>Pincode</span>
             <strong>${escapeHTML(office.pincode)}</strong>
@@ -804,52 +802,66 @@ function showOffice(office) {
         </div>
     `;
 
-
     const lat = Number(office.latitude);
     const lon = Number(office.longitude);
 
+    /*
+     * GOOGLE MAP
+     */
     if (
         Number.isFinite(lat) &&
         Number.isFinite(lon)
     ) {
 
-        const delta = 0.015;
+        const googleMapURL =
+            `https://www.google.com/maps?q=${encodeURIComponent(lat)},${encodeURIComponent(lon)}` +
+            `&z=15&output=embed`;
 
-        const bbox =
-            `${lon - delta},${lat - delta},` +
-            `${lon + delta},${lat + delta}`;
-
-        const mapURL =
-            "https://www.openstreetmap.org/export/embed.html" +
-            `?bbox=${encodeURIComponent(bbox)}` +
-            `&layer=mapnik` +
-            `&marker=${encodeURIComponent(lat)},${encodeURIComponent(lon)}`;
+        const googleMapsLink =
+            `https://www.google.com/maps?q=${encodeURIComponent(lat)},${encodeURIComponent(lon)}`;
 
         mapWrap.innerHTML = `
-
             <iframe
                 class="map"
-                src="${mapURL}"
-                title="${escapeHTML(office.officename)} location map"
+                src="${googleMapURL}"
+                title="${escapeHTML(office.officename || "Branch Office")} location map"
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
             </iframe>
 
             <div class="map-footer">
-                Coordinates:
-                ${escapeHTML(lat)},
-                ${escapeHTML(lon)}
+                <span>
+                    Coordinates:
+                    ${escapeHTML(lat)},
+                    ${escapeHTML(lon)}
+                </span>
+
+                <a
+                    href="${googleMapsLink}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open in Google Maps ↗
+                </a>
             </div>
         `;
 
     } else {
 
         mapWrap.innerHTML = `
-            <div class="empty" style="height:100%;border:0;border-radius:0">
+            <div
+                class="empty"
+                style="height:100%;border:0;border-radius:0"
+            >
                 <div class="empty-icon">⌖</div>
-                <strong>Location unavailable</strong>
+
+                <strong>
+                    Location unavailable
+                </strong>
+
                 <div>
-                    Latitude and longitude are not available for this office.
+                    Latitude and longitude are not available
+                    for this office.
                 </div>
             </div>
         `;
