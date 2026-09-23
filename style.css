@@ -1,3 +1,7 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css);
+
+
+
 :root {
     --bg: #f5f7fb;
     --surface: #ffffff;
@@ -3685,4 +3689,88 @@ body.popup-open {
   background: var(--primary);
   color: #fff;
   box-shadow: 0 12px 24px rgba(37, 99, 235, 0.18);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Legal page content styling */
+.privacy-policy,
+.terms-of-use {
+    max-width: 1000px;
+    margin: 60px auto 0;
+    padding: 48px 52px 56px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.privacy-policy h1,
+.terms-of-use h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.privacy-policy p,
+.terms-of-use p,
+.privacy-policy li,
+.terms-of-use li {
+    color: #334155;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0 0 14px;
+}
+
+.privacy-policy h2,
+.terms-of-use h2 {
+    margin: 28px 0 12px;
+    color: #0f172a;
+    font-size: 1.35rem;
+}
+
+.privacy-policy h3,
+.terms-of-use h3 {
+    margin: 22px 0 10px;
+    color: #0f172a;
+    font-size: 1.1rem;
+}
+
+.privacy-policy ul,
+.terms-of-use ul {
+    margin: 0 0 20px 22px;
+    padding-left: 10px;
+}
+
+.privacy-policy a,
+.terms-of-use a {
+    color: #0ea5e9;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.privacy-policy a:hover,
+.terms-of-use a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .privacy-policy,
+    .terms-of-use {
+        margin-top: 30px;
+        padding: 28px 22px 32px;
+        border-radius: 18px;
+    }
 }
